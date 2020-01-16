@@ -1,6 +1,8 @@
 import React from 'react'
 import {Image, StyleSheet, View, Text, TouchableHighlight, TextInput, KeyboardAvoidingView} from 'react-native'
 
+import Logo from './Logo.js'
+
 export default class Login extends React.Component{
     constructor(){
         super()
@@ -20,14 +22,9 @@ export default class Login extends React.Component{
     
     render(){
         return(
-            <KeyboardAvoidingView behavior="padding" style={styles.container}>
-                <View style={styles.logoContainer}>
-                    <Image
-                        style={styles.logo} 
-                        source={require("../assets/bicycle.jpg")}
-                    />
-                    <Text style={styles.title}>Uncle Nick's Bites on Bikes</Text>
-                </View>
+            <View style={styles.container}>
+            <KeyboardAvoidingView behavior="padding">
+                <Logo style={styles.logo} />
                 <View style={styles.formContainer}>
                     <TextInput 
                         style={styles.input}
@@ -59,6 +56,8 @@ export default class Login extends React.Component{
                     </TouchableHighlight>
                 </View>  
             </KeyboardAvoidingView>
+            <Text style={styles.signupText}>Don't have an account? Sign up here!</Text>
+            </View>
         )
     }
 }
@@ -68,32 +67,15 @@ const styles = StyleSheet.create({
         flex:1,
         padding:100
     },
-    logoContainer: {
-        flexGrow:1,
-        alignItems:'center',
-        justifyContent:'center'
-    },
     formContainer: {
         flexGrow:1,
         alignItems:'center',
         justifyContent:'center'
-    }, 
-    logo: {
-        width:150,
-        height:150,
-        borderRadius:25
-    },
-    title: {
-        color:"#eee",
-        fontSize:22,
-        textAlign:'center',
-        fontFamily: 'open-sans',
-        marginTop: 10,
-        width: 200
     },
     button: {
-        width: 150,
-        height: 75,
+        paddingHorizontal:36,
+        paddingVertical:18,
+        margin: 10,
         backgroundColor:"#333",
         alignItems:'center',
         justifyContent:'center'
@@ -101,14 +83,22 @@ const styles = StyleSheet.create({
     buttonText: {
         fontFamily: 'open-sans',
         color: "#eee",
-        fontSize:18
+        fontSize:16
     },
     input:{
-        color: "#000",
+        color: "#fff",
+        fontFamily: 'open-sans',
         width:200,
         height:50,
         padding:10,
         margin:10,
-        backgroundColor:"#ffd3"
+        backgroundColor:"#0003",
+        borderRadius:5
+    },
+    signupText: {
+        color:'#fff',
+        fontSize:13,
+        textAlign:'center',
+        fontFamily:'open-sans'
     }
 })
