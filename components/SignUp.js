@@ -66,7 +66,9 @@ export default class SignUp extends React.Component{
                     </TouchableHighlight>
                 </View>  
             </KeyboardAvoidingView>
-            <Text style={styles.signupText}>Already have an account? Log in here!</Text>
+            <TouchableHighlight onPress={() => this.props.navigation.navigate('Login')}>
+                <Text style={styles.signupText}>Already have an account? Log in here!</Text>
+            </TouchableHighlight>
             </View>
         )
     }
@@ -75,6 +77,7 @@ export default class SignUp extends React.Component{
 const styles = StyleSheet.create({
     container: {
         flex:1,
+        backgroundColor: '#820',
         padding:100
     },
     formContainer: {
