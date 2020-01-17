@@ -1,16 +1,26 @@
 import React from 'react'
 import {Image, StyleSheet, View, Text} from 'react-native'
 
-export default function Logo() {
-    return(
-        <View style={styles.logoContainer}>
-            <Image
-                style={styles.logo} 
-                source={require("../assets/bicycle.jpg")}
-            />
-            <Text style={styles.title}>Uncle Nick's Bites on Bikes</Text>
-        </View>
-    )
+export default class Logo extends React.Component{
+    constructor(props){
+        super(props)
+        this.size = this.props.logoSize
+    }
+    render(){
+        return(
+            <View style={styles.logoContainer}>
+                <Image
+                    style={{width: this.size, height: this.size, borderRadius:25}} 
+                    source={require("../assets/bicycle.jpg")}
+                />
+                <Text style={{...styles.title, fontSize:(Math.floor(this.size/5))}}>Uncle Nick's Bites on Bikes</Text>
+            </View>
+        )
+    }
+}
+
+Logo.defaultProps = {
+    logoSize: 150
 }
 
 const styles = StyleSheet.create({
@@ -19,14 +29,8 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center'
     },
-    logo: {
-        width:150,
-        height:150,
-        borderRadius:25
-    },
     title: {
         color:"#eee",
-        fontSize:30,
         textAlign:'center',
         fontFamily: 'open-sans',
         marginTop: 10,

@@ -8,7 +8,8 @@ export default class SignUp extends React.Component{
         super()
         this.state = {
             phoneNumber : "",
-            password : ""
+            password : "",
+            confirmPassword: ""
         }
     }
 
@@ -24,7 +25,7 @@ export default class SignUp extends React.Component{
         return(
             <View style={styles.container}>
             <KeyboardAvoidingView behavior="padding">
-                <Logo style={styles.logo} />
+                <Logo logoSize={110} />
                 <View style={styles.formContainer}>
                     <TextInput 
                         style={styles.input}
@@ -44,6 +45,7 @@ export default class SignUp extends React.Component{
                         returnKeyType="next"
                         value={this.state.password}
                         ref={(input) => this.passwordInput = input}
+                        onSubmitEditing={() => this.confPassInput.focus()}
                         onChangeText={(value) => this.updateState(value, "password")}
                         />
                     <TextInput 
@@ -52,9 +54,9 @@ export default class SignUp extends React.Component{
                         textContentType="password"
                         secureTextEntry={true}
                         returnKeyType="go"
-                        value={this.state.password}
-                        ref={(input) => this.passwordInput = input}
-                        onChangeText={(value) => this.updateState(value, "password")}
+                        value={this.state.confirmPassword}
+                        ref={(input) => this.confPassInput = input}
+                        onChangeText={(value) => this.updateState(value, "confirmPassword")}
                     />
                     <TouchableHighlight 
                         style={styles.button}
@@ -65,10 +67,10 @@ export default class SignUp extends React.Component{
                             </View>
                     </TouchableHighlight>
                 </View>  
-            </KeyboardAvoidingView>
             <TouchableHighlight onPress={() => this.props.navigation.navigate('Login')}>
                 <Text style={styles.signupText}>Already have an account? Log in here!</Text>
             </TouchableHighlight>
+            </KeyboardAvoidingView>
             </View>
         )
     }

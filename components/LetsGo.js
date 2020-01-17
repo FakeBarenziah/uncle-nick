@@ -1,8 +1,6 @@
 import React from 'react'
 import {StyleSheet, Text, TouchableHighlight} from 'react-native'
 
-// import { TouchableHighlight } from 'react-native-gesture-handler'
-
 export default function LetsGo(props){
         return(
             <TouchableHighlight 
