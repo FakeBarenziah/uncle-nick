@@ -1,8 +1,9 @@
 import React from 'react'
-import {createAppContainer} from 'react-navigation'
 
-import Routes from './src/components/Routes'
+import Main from './src/Main'
 
-const AppContainer = createAppContainer(Routes)
-
-export default AppContainer
+export default function App() {
+    return(
+            <Main/>
+    )
+}

@@ -1,12 +1,13 @@
 import React from 'react'
-import {createStackNavigator} from 'react-navigation-stack'
+import { createAppContainer } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation-stack'
 
 // Component Imports:
 import Login from './auth/Login.js'
 import SignUp from './auth/SignUp.js'
 import Splash from './splash/Splash.js'
 
-export default Routes = createStackNavigator({
+const stackNav = createStackNavigator({
     Splash: {screen: Splash},
     Login: {screen: Login},
     SignUp: {screen: SignUp}
@@ -14,3 +15,5 @@ export default Routes = createStackNavigator({
     initialRouteName: 'Splash',
     headerMode: "none"
 })
+
+export default RoutesContainer = createAppContainer(stackNav)
