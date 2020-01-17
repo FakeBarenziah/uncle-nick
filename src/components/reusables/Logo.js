@@ -11,7 +11,7 @@ export default class Logo extends React.Component{
             <View style={styles.logoContainer}>
                 <Image
                     style={{width: this.size, height: this.size, borderRadius:25}} 
-                    source={require("../assets/bicycle.jpg")}
+                    source={require("../../../assets/bicycle.jpg")}
                 />
                 <Text style={{...styles.title, fontSize:(Math.floor(this.size/5))}}>Uncle Nick's Bites on Bikes</Text>
             </View>

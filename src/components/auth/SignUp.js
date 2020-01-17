@@ -1,7 +1,7 @@
 import React from 'react'
 import {Image, StyleSheet, View, Text, TouchableHighlight, TextInput, KeyboardAvoidingView} from 'react-native'
 
-import Logo from '../reusables/Logo.js.js'
+import Logo from '../reusables/Logo.js'
 
 export default class SignUp extends React.Component{
     constructor(){
