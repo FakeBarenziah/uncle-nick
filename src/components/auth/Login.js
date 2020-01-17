@@ -1,15 +1,14 @@
 import React from 'react'
 import {Image, StyleSheet, View, Text, TouchableHighlight, TextInput, KeyboardAvoidingView} from 'react-native'
 
-import Logo from './Logo.js'
+import Logo from '../reusables/Logo.js/index.js.js'
 
-export default class SignUp extends React.Component{
+export default class Login extends React.Component{
     constructor(){
         super()
         this.state = {
             phoneNumber : "",
-            password : "",
-            confirmPassword: ""
+            password : ""
         }
     }
 
@@ -25,7 +24,7 @@ export default class SignUp extends React.Component{
         return(
             <View style={styles.container}>
             <KeyboardAvoidingView behavior="padding">
-                <Logo logoSize={110} />
+                <Logo style={styles.logo} />
                 <View style={styles.formContainer}>
                     <TextInput 
                         style={styles.input}
@@ -42,35 +41,24 @@ export default class SignUp extends React.Component{
                         placeholder="Password"
                         textContentType="password"
                         secureTextEntry={true}
-                        returnKeyType="next"
+                        returnKeyType="go"
                         value={this.state.password}
                         ref={(input) => this.passwordInput = input}
-                        onSubmitEditing={() => this.confPassInput.focus()}
                         onChangeText={(value) => this.updateState(value, "password")}
                         />
-                    <TextInput 
-                        style={styles.input}
-                        placeholder="Confirm Password"
-                        textContentType="password"
-                        secureTextEntry={true}
-                        returnKeyType="go"
-                        value={this.state.confirmPassword}
-                        ref={(input) => this.confPassInput = input}
-                        onChangeText={(value) => this.updateState(value, "confirmPassword")}
-                    />
                     <TouchableHighlight 
                         style={styles.button}
                         onPress={this.onSubmit}
                         >
                             <View>
-                                <Text style={styles.buttonText}>Register</Text>
+                                <Text style={styles.buttonText}>Login</Text>
                             </View>
                     </TouchableHighlight>
                 </View>  
-            <TouchableHighlight onPress={() => this.props.navigation.navigate('Login')}>
-                <Text style={styles.signupText}>Already have an account? Log in here!</Text>
-            </TouchableHighlight>
             </KeyboardAvoidingView>
+            <TouchableHighlight onPress={() => this.props.navigation.navigate('SignUp')}>
+                <Text style={styles.signupText}>Don't have an account? Sign up here!</Text>
+            </TouchableHighlight>
             </View>
         )
     }

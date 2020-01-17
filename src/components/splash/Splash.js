@@ -3,7 +3,7 @@ import { StyleSheet, View, StatusBar} from 'react-native'
 
 import * as Font from 'expo-font'
 
-import Logo from './Logo.js'
+import Logo from './reusables/Logo.js/index.js.js'
 import LetsGo from './LetsGo'
 
 export default class Splash extends React.Component{
